@@ -73,7 +73,7 @@
   },
   "dependencies": {
     "@brazilian-utils/brazilian-utils": "1.0.0-rc.12",
-    "@prisma/client": "^4.9.0",
+    "@prisma/client": "4.9.0",
     "axios": "^1.2.3",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
@@ -84,7 +84,7 @@
     "http-status": "^1.6.2",
     "joi": "^17.7.0",
     "jsonwebtoken": "^9.0.0",
-    "prisma": "^4.9.0",
+    "prisma": "4.9.0",
     "reflect-metadata": "^0.1.13",
     "uuid": "^9.0.0"
   }
