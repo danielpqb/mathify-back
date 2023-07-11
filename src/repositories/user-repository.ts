@@ -21,10 +21,15 @@ async function findById(id: number) {
   });
 }
 
-async function create(data: Prisma.UserUncheckedCreateInput) {
-  return prisma.user.create({
-    data,
-  });
+async function createUser(data: {
+  name: string;
+  email: string;
+  password: string;
+  photoUrl?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+}) {
+  return prisma.user.create({ data: data });
 }
 
 async function update(data: { name: string; photoUrl: string }, userId: number) {
@@ -37,7 +42,7 @@ async function update(data: { name: string; photoUrl: string }, userId: number) 
 const userRepository = {
   findByEmail,
   findById,
-  create,
+  createUser,
   update,
 };
 

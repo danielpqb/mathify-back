@@ -12,12 +12,12 @@ datasource db {
 
 model User {
   id         Int          @id @default(autoincrement())
-  name       String       
+  name       String       @default(cuid())
   email      String       @unique @db.VarChar(255)
   password   String       @db.VarChar(255)
   photoUrl   String?
   createdAt  DateTime     @default(now())
-  updatedAt  DateTime     @updatedAt
+  updatedAt  DateTime     @updatedAt @default(now())
   Session    Session[]
 }
 
@@ -27,5 +27,5 @@ model Session {
   User      User     @relation(fields: [userId], references: [id])
   token     String
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @updatedAt @default(now())
 }

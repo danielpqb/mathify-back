@@ -28,10 +28,13 @@ export async function createUser({ name, email, password }: CreateUserParams): P
   await validateUniqueEmailOrFail(email);
 
   const hashedPassword = await bcrypt.hash(password, 12);
-  return userRepository.create({
+  // console.log("(1)");
+  return userRepository.createUser({
     name,
     email,
     password: hashedPassword,
+    createdAt: new Date(Date.now()),
+    updatedAt: new Date(Date.now()),
   });
 }
 

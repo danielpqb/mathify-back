@@ -9,5 +9,6 @@ const router = Router();
 router.post("/sign-up", validateBody(createUserSchema), signUp);
 router.put("/oauth", validateBody(oAuthSchema), oAuth);
 router.get("/me", authenticateToken, getUserData);
+//router.get("/get", getFirstUserData);
 
 export { router as usersRouter };

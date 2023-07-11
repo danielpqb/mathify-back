@@ -11,15 +11,19 @@ export async function signUp(req: Request, res: Response) {
 
   try {
     const user = await userService.createUser({ name, email, password });
+    // console.log("1");
     return res.status(httpStatus.CREATED).json({
       id: user.id,
       email: user.email,
     });
   }
   catch (error) {
+    // console.log("2");
     if (error.name === "DuplicatedEmailError") {
+      // console.log(".1");
       return res.status(httpStatus.CONFLICT).send(error);
     }
+    // console.log(".2");
     return res.status(httpStatus.BAD_REQUEST).send(error);
   }
 }
@@ -60,3 +64,10 @@ export async function getUserData(req: AuthenticatedRequest, res: Response) {
   const user = await userService.getUserById(userId);
   return res.status(httpStatus.OK).send({ user });
 }
+
+// export async function getFirstUserData(req: Request, res: Response) {
+//   const userId = 1;
+
+//   const user = await userService.getUserById(userId);
+//   return res.status(httpStatus.OK).send({ user });
+// }
